@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>LUBIE PLACKI</title>
+{% block title %}
+{% endblock %}
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -70,29 +71,8 @@
 </nav>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-6">
-			<form method="POST" id="resume-form" action="">{% csrf_token %}
-				<h3>Basic informations</h3>
-				{{basic_form|crispy}}
-				<h3>Experience informations</h3>
-				{{experience_formset.management_form}}
-				{% for form in experience_formset %}
-				<div id="experience-form">
-				{{form|crispy}}
-				{% endfor %}
-				</div>
-				<button class="btn btn-default" type="button" id="add-experience">Add more experience</button>
-				<h3>Education informations</h3>
-				{{education_formset.management_form}}
-				{% for form in education_formset %}
-				<div id="education-form">
-				{{form|crispy}}
-				{% endfor %}
-				</div>
-				<button class="btn btn-default" type="button" id="add-school">Add another school</button>
-				<input type="submit" value="Submit"/>
-			</form>
-		</div>
+	{% block content %}
+	{% endblock %}
 	</div>
 </div>
 </body>

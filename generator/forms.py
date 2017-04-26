@@ -30,3 +30,5 @@ class EducationInformationsForm(forms.Form):
 	graduation_date = forms.DateField(widget=forms.DateInput(attrs={'placeholder': "Enter your graduation's date",
 																'class': 'datepicker'}))
 	
+class AdditionaInformationsForm(forms.Form):
+	informations = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': 'Enter any additional informations'}))

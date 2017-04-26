@@ -14,7 +14,7 @@ def formset_data(formset, **kwargs):
             job_title = form_data.get(kwargs['title'], '')
             formdata_dict = {
                 'job_title': job_title,
-                'comapny': name,
+                'company': name,
                 'description': experience,
                 'date': startend_period
                 }
@@ -25,6 +25,7 @@ def formset_data(formset, **kwargs):
                 'school_name': name,
                 'date': startend_period
                 }
+            print(formdata_dict)
             
         data_array.append(formdata_dict)
 

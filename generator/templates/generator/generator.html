@@ -1,0 +1,34 @@
+{% extends 'generator/index.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Generate your resume!</title>
+{% endblock %}
+
+{% block content %}
+<div class="col-lg-6">
+	<form method="POST" id="resume-form" action="">{% csrf_token %}
+		<h3>Basic informations</h3>
+		{{basic_form|crispy}}
+		<h3>Experience informations</h3>
+		{{experience_formset.management_form}}
+		{% for form in experience_formset %}
+			<div id="experience-form">
+				{{form|crispy}}
+		{% endfor %}
+			</div>
+		<button class="btn btn-default" type="button" id="add-experience">Add more experience</button>
+		<h3>Education informations</h3>
+		{{education_formset.management_form}}
+		{% for form in education_formset %}
+			<div id="education-form">
+				{{form|crispy}}
+		{% endfor %}
+			</div>
+		<button class="btn btn-default" type="button" id="add-school">Add another school</button>
+		<h3>Additional informations</h3>
+		{{additional_informations|crispy}}
+		<input type="submit" value="Submit"/>
+	</form>
+</div>
+{% endblock %}
