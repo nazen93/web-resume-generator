@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.forms.formsets import formset_factory
@@ -6,6 +7,8 @@ from .generator import resume_generator
 from .data_function import formset_data
 
 def index(request):	
+	print('luuul')
+	print(settings.MEDIA_ROOT+'/'+'resume_template1.docx')
 	experience_formset = formset_factory(ExperienceInformationsForm)
 	education_formset = formset_factory(EducationInformationsForm)
 	if request.method == "POST":
@@ -34,7 +37,7 @@ def index(request):
 			experience_array = formset_data(experience_forms, **experience_kwargs)			
 			education_array = formset_data(education_forms, **education_kwargs)
 			
-			resume_generator(name, contact, carrer_objective, skills, experience_array, education_array)
+			resume_generator('resume_template1', name, contact, carrer_objective, skills, experience_array, education_array)
 			return HttpResponse("it's done!")
 	else:
 		basicinformation_form = BasicInformationsForm()

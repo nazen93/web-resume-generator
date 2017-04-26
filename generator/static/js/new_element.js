@@ -1,16 +1,28 @@
-var add_another = document.getElementsByClassName('more');
-var wut = add_another[0];
-var form_amount = document.getElementById('id_form-TOTAL_FORMS');
-var base_form = document.getElementById('exp-form');
-var base_HTML = name(base_form.innerHTML, '0', '{arg}');
+var add_another_job = document.getElementById('add-experience');
+var add_another_school = document.getElementById('add-school');
 
-wut.addEventListener('click', new_fields)
+var experience_form_amount = document.getElementById('id_experience-TOTAL_FORMS');
+var experience_base_form = document.getElementById('experience-form');
+var experience_base_HTML = name(experience_base_form.innerHTML, '0', '{arg}');
 
-function new_fields(){
+var education_form_amount = document.getElementById('id_education-TOTAL_FORMS');
+var education_base_form = document.getElementById('education-form');
+var education_base_HTML = name(education_base_form.innerHTML, '0', '{arg}');
+
+add_another_job.addEventListener('click', function(){
+	new_fields(experience_form_amount, experience_base_form, experience_base_HTML)
+})
+
+add_another_school.addEventListener('click', function(){
+	new_fields(education_form_amount, education_base_form, education_base_HTML)
+})
+
+
+function new_fields(form_amount, base_form, base_HTML){
 	var new_form_amount = parseInt(form_amount.value) + 1;
 	var new_form = name(base_HTML, '{arg}', form_amount.value);
 	form_amount.value = new_form_amount;
-	base_form.innerHTML = base_form.innerHTML+new_form;	
+	base_form.insertAdjacentHTML('beforeend', new_form);
 };
 
 function name(str, replaceWhat, replaceTo){
@@ -19,12 +31,3 @@ function name(str, replaceWhat, replaceTo){
 	return new_string;
 };
 
-$(function datepicker() {
-	$('#exp-form').delegate('.datepicker', 'focus', function() {
-		$(this).datepicker().triggerHandler("focus");
-	});
-  });
-
-$('#exp-form').delegate('.datepicker', 'focus', function() {
-    $(this).datepicker();
-});

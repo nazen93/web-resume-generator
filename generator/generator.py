@@ -1,7 +1,9 @@
+from django.conf import settings
 from docxtpl import DocxTemplate, Listing
 
-def resume_generator(name, address, carrer_objective, skills, experience_array, education_array):
+def resume_generator(template_name, name, address, carrer_objective, skills, experience_array, education_array):
     skills = skills.split(',')
+    template_path = settings.MEDIA_ROOT+'/'+template_name+'.docx'
     doc = DocxTemplate('C:/Users/ADMIN/Desktop/test/test.docx')
     context = {'name': name,
                'address': address,
@@ -12,4 +14,4 @@ def resume_generator(name, address, carrer_objective, skills, experience_array, 
                'informations' : ["Drivers license", "uber hacker"]
                }
     doc.render(context)
-    doc.save('C:/Users/ADMIN/Desktop/test/kekorino.docx')
+    doc.save(settings.MEDIA_ROOT+'/'+template_name+name+'.docx')
