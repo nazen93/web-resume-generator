@@ -11,6 +11,7 @@ class BasicInformationsForm(forms.Form):
 	mail = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Enter your e-mail'}))
 	carrer_objective = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Enter your carrer objective'}))
 	skills = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Enter you skills'}))
+
 	
 class ExperienceInformationsForm(forms.Form):
 	job_title = forms.CharField(widget=forms.TextInput(attrs={'placeholder': "Enter your position's title"}))
@@ -21,6 +22,15 @@ class ExperienceInformationsForm(forms.Form):
 	end_date = forms.DateField(widget=forms.DateInput(attrs={'placeholder': 'Enter your working period',
 																'class': 'datepicker'}))
 	
+	def clean(self):
+		cleaned_data = super(ExperienceInformationsForm, self).clean()
+		start_date = cleaned_data.get('start_date')
+		end_date = cleaned_data.get('end_date')
+		if start_date > end_date:
+			msg = 'Start date cannot be bigger than the end date'
+			self.add_error('start_date', msg)
+
+
 class EducationInformationsForm(forms.Form):
 	schools = [('highschool', 'Highschool'), ('college', 'College')]
 	school_type = forms.CharField(widget=forms.Select(choices=schools))
@@ -29,6 +39,15 @@ class EducationInformationsForm(forms.Form):
 																'class': 'datepicker'}))
 	graduation_date = forms.DateField(widget=forms.DateInput(attrs={'placeholder': "Enter your graduation's date",
 																'class': 'datepicker'}))
+	
+	def clean(self):
+		cleaned_data = super(EducationInformationsForm, self).clean()
+		enrollment_date = cleaned_data.get('enrollment_date')
+		graduation_date = cleaned_data.get('graduation_date')
+		if enrollment_date > graduation_date:
+			msg = 'Enrollment date cannot be bigger than graduation date'
+			self.add_error('enrollment_date', msg)
+
 	
 class AdditionaInformationsForm(forms.Form):
 	informations = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': 'Enter any additional informations'}))

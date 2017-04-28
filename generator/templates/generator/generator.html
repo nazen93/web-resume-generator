@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="col-lg-6">
+<div class="col-xs-12">
 	<form method="POST" id="resume-form" action="">{% csrf_token %}
 		<h3>Basic informations</h3>
 		{{basic_form|crispy}}
@@ -28,7 +28,7 @@
 		<button class="btn btn-default" type="button" id="add-school">Add another school</button>
 		<h3>Additional informations</h3>
 		{{additional_informations|crispy}}
-		<input type="submit" value="Submit"/>
+		<input type="submit" id="submit-btn" class="btn btn-success" value="Generate your resume!"/>
 	</form>
 </div>
 {% endblock %}

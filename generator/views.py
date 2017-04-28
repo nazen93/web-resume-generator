@@ -3,7 +3,7 @@ import os
 
 from wsgiref.util import FileWrapper
 from django.conf import settings
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import StreamingHttpResponse
 from django.forms.formsets import formset_factory
@@ -46,14 +46,9 @@ def index(request):
 			education_array = formset_data(education_forms, **education_kwargs)
 			
 			file_path = resume_generator('resume_template1', name, contact, carrer_objective, skills, experience_array, education_array, additional_informations) #generates the resume with the given informations and returns a path to the created file
-
-			filename = os.path.basename(file_path)
-			chunk_size = 8192
-			response = StreamingHttpResponse(FileWrapper(open(file_path, 'rb'), chunk_size),
-			                           content_type=mimetypes.guess_type(file_path)[0])
-			response['Content-Length'] = os.path.getsize(file_path)    
-			response['Content-Disposition'] = "attachment; filename=%s" % filename
-			return response
+			request.session['path'] = file_path
+			
+			return redirect('success')
 		
 	else:
 		basic_information_form = BasicInformationsForm()
@@ -68,4 +63,16 @@ def index(request):
 	
 	return render(request, 'generator/generator.html', context)
 
-
+def success(request):
+	if request.method == 'POST':
+		if 'path' in request.session:
+			file_path = request.session['path']
+			filename = os.path.basename(file_path)
+			chunk_size = 8192
+			response = StreamingHttpResponse(FileWrapper(open(file_path, 'rb'), chunk_size),
+					                           content_type=mimetypes.guess_type(file_path)[0])
+			response['Content-Length'] = os.path.getsize(file_path)    
+			response['Content-Disposition'] = "attachment; filename=%s" % filename
+			return response
+		
+	return render(request, 'generator/success.html')
