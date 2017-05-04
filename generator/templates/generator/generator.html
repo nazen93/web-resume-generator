@@ -35,7 +35,7 @@
 						<div id="step-1 text-center">
 							<h3>Basic informations</h3>
 							{{basic_form|crispy}}
-							<button class="btn btn-default next-step" type="button">Next step</button>
+							<button class="btn btn-primary next-step" type="button">Next step</button>
 						</div>
 					</div>
 				    <div role="tabpanel" class="tab-pane" id="step-2">
@@ -46,9 +46,15 @@
 							{{form|crispy}}
 							{% endfor %}
 							</div>
-						<button class="btn btn-default" type="button" id="add-experience">Add more experience</button>
-						<button class="btn btn-danger" type="button">Previous step</button>
-						<button class="btn btn-default next-step" type="button">Next step</button>
+						<div class="btn-group">
+							<button class="btn btn-danger previous-step" type="button">Previous step</button>
+							<button class="btn btn-primary next-step" type="button">Next step</button>
+						</div>
+						<div class="row">
+							<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+								<button class="btn btn-info" type="button" id="add-experience">Add more experience</button>
+							</div>
+						</div>
 					</div>
 				    <div role="tabpanel" class="tab-pane" id="step-3">
 						<h3>Education informations</h3>
@@ -57,14 +63,24 @@
 							<div id="education-form">
 							{{form|crispy}}
 							{% endfor %}
-							</div>				
-						<button class="btn btn-default" type="button" id="add-school">Add another school</button>
-						<button class="btn btn-default next-step" type="button">Next step</button>
+							</div>		
+						<div class="btn-group">
+							<button class="btn btn-danger previous-step" type="button">Previous step</button>
+							<button class="btn btn-primary next-step" type="button">Next step</button>
+						</div>
+						<div class="row">
+							<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+								<button class="btn btn-info" type="button" id="add-school">Add another school</button>
+							</div>
+						</div>
 					</div>
 				    <div role="tabpanel" class="tab-pane" id="step-4">				
 					    <h3>Additional informations</h3>
 						{{additional_informations|crispy}}
-						<input type="submit" id="submit-btn" class="btn btn-success" value="Generate your resume!"/>
+						<div class="btn-group">
+						<button class="btn btn-danger previous-step" type="button">Previous step</button>
+						<button type="submit" id="submit-btn" class="btn btn-success">Generate your resume!</button>
+						</div>
 				    </div>
 				  </div>
 				</form>

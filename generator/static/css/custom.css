@@ -26,6 +26,9 @@
 	color: #337ab7;
 }
 
+#add-experience {
+	display: inline block;
+}
 
 .pill-color a,
 .pill-color a:focus {
@@ -71,3 +74,11 @@ body{
 	color: white;
 }
 
+.previous-step {
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+.next-step {
+	margin-bottom: 10px;
+}
