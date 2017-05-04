@@ -2,6 +2,9 @@ from django.conf import settings
 from docxtpl import DocxTemplate, Listing
 
 def resume_generator(template_name, name, address, carrer_objective, skills, experience_array, education_array, additional_informations):
+    """
+    Takes template name (.docx template) and all submitted POST data, creates a dictionary out of the given arguments, renders the data on .docx template and returns the path to the generate file
+    """
     skills = skills.split(',')
     if additional_informations:
         extra_informations = additional_informations.split(',')

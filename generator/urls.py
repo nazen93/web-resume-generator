@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^generate/$', views.generator, name='generator'),
     url(r'^success/$', views.success, name='success'),
 ]

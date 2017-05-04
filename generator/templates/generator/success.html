@@ -6,13 +6,17 @@
 {% endblock %}
 
 {% block content %}
-<div class="col-xs-12">
-	<h3 id="downloaded" class="text-center">Your resume has been generated successfully!</h3>
-	<form method="POST" action="" id="download">{% csrf_token %}
-	<button type="submit" class="btn btn-info center-block" id="resume-download">
-	<span class="glyphicon glyphicon-file" style="vertical-align:middle"></span>
-	Download your resume!
-	</button>
-	</form>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3 id="downloaded" class="text-center">Your resume has been generated successfully!</h3>
+			<form method="POST" action="" id="download">{% csrf_token %}
+			<button type="submit" class="btn btn-info center-block" id="resume-download">
+			<span class="glyphicon glyphicon-file" style="vertical-align:middle"></span>
+			Download your resume!
+			</button>
+			</form>
+		</div>
+	</div>
 </div>
 {% endblock %}

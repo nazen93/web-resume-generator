@@ -20,9 +20,15 @@ def formset_data(formset, **kwargs):
                 }
         else:
             school_type = form_data.get(kwargs['type'], '')
+            degree = form_data.get(kwargs['degree'], '')
+            course = form_data.get(kwargs['course'], '')
+            gpa = form_data.get(kwargs['gpa'], '')
             formdata_dict = {
                 'type': school_type,
                 'school_name': name,
+                'degree': degree,
+                'course': course,
+                'gpa': gpa, 
                 'date': startend_period
                 }
             

@@ -1,9 +1,49 @@
 #resume-form {
 	max-width: 450px;
+	text-align: center;
 }
 
-#resume-download{
+#resume-form > form {
+    display: inline-block;
+}
 
+.jumbotron {
+	color: white;
+	background-color: #01b285;
+	max-height: 5000x;
+}
+
+.nav-pills > li > a{
+	margin-right: 30px;
+}
+
+.tab-content {
+	width: auto;
+}
+
+.well {
+	margin: 10px 60px 0 40px;
+	color: #337ab7;
+}
+
+
+.pill-color a,
+.pill-color a:focus {
+	background-color: #265c8b;
+}
+
+.pill-color a:hover,
+.pill-color a:active,
+.pill-color a:link {
+	background-color: #337ab7 !important;
+}
+
+#generate-button{
+	max-width: 250px;
+}
+
+.asteriskField{
+	color: red;
 }
 
 .glyphicon {
@@ -11,3 +51,23 @@
     display:block;
     text-align:center;
 }
+
+#myCarousel {
+	height: 760px;
+	width: 530px; 
+	margin: 0 auto;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 530px;
+    height: 760px;
+}
+
+body{
+	background-color: #ecf1f4;
+}
+
+.nav-pills > li > a {
+	color: white;
+}
+

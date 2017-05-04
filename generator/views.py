@@ -14,7 +14,11 @@ from .forms import BasicInformationsForm, ExperienceInformationsForm, EducationI
 from .generator import resume_generator
 from .data_function import formset_data
 
-def index(request):	
+
+def index(request):
+	return render(request, 'generator/home_page.html')
+
+def generator(request):	
 	experience_formset = formset_factory(ExperienceInformationsForm)
 	education_formset = formset_factory(EducationInformationsForm)
 	if request.method == "POST":
@@ -24,9 +28,10 @@ def index(request):
 		additional_informations_form = AdditionaInformationsForm(request.POST)
 		if basic_information_form.is_valid() and experience_forms.is_valid() and education_forms.is_valid() and additional_informations_form.is_valid():
 			name = request.POST.get('name', '')
+			phone_number = request.POST.get('phone_number', '')
 			mail = request.POST.get('mail', '')
 			address = request.POST.get('address', '')
-			contact = '%s \n %s' % (address, mail)
+			contact = '%s * %s * %s' % (address, phone_number, mail)
 			carrer_objective = request.POST.get('carrer_objective', '')
 			skills = request.POST.get('skills', '')
 			additional_informations = request.POST.get('informations', '')
@@ -39,6 +44,9 @@ def index(request):
 			
 			education_kwargs = {'name': 'school_name',
 								'type': 'school_type',
+								'degree': 'degree',
+								'course': 'course',
+								'gpa': 'gpa',
 								'start_date': 'enrollment_date',
 								'end_date': 'graduation_date'}
 			
