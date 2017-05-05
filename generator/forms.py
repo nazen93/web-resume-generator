@@ -37,8 +37,8 @@ class EducationInformationsForm(forms.Form):
 	school_type = forms.CharField(widget=forms.Select(choices=schools))
 	school_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': "Enter your school's name"}))
 	degree = forms.CharField(widget=forms.TextInput(attrs={'placeholder': "Enter your degree"}))
-	course = forms.CharField(widget=forms.TextInput(attrs={'placeholder': "Enter your course"}))
-	gpa = forms.FloatField(label='GPA', widget=forms.NumberInput(attrs={'placeholder': 'Enter your GPA'}))
+	course = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': "Enter your course"}))
+	gpa = forms.FloatField(required=False, label='GPA', widget=forms.NumberInput(attrs={'placeholder': 'Enter your GPA'}))
 	enrollment_date = forms.DateField(widget=forms.DateInput(attrs={'placeholder': "Enter your enrollment date",
 																'class': 'datepicker'}))
 	graduation_date = forms.DateField(widget=forms.DateInput(attrs={'placeholder': "Enter your graduation's date",

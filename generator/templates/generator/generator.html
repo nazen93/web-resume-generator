@@ -20,7 +20,7 @@
 		  	</div>
 		  </div>
 	</div>
-			<!-- Tab panes -->
+	<!-- Tab panes -->
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
 			<div class="well">
@@ -88,38 +88,4 @@
 		</div>
 	</div>
 </div>
-
-
-
-<!--  
-			<form method="POST" id="resume-form" action="">{% csrf_token %}
-			<div id="step-1">
-				<h3>Basic informations</h3>
-				{{basic_form|crispy}}
-				<h3>Experience informations</h3>
-				{{experience_formset.management_form}}
-			</div>
-				{% for form in experience_formset %}
-					<div id="experience-form">
-						{{form|crispy}}
-				{% endfor %}
-					</div>
-				<button class="btn btn-default" type="button" id="add-experience">Add more experience</button>
-				<h3>Education informations</h3>
-				{{education_formset.management_form}}
-				{% for form in education_formset %}
-					<div id="education-form">
-						{{form|crispy}}
-				{% endfor %}
-					</div>
-				<button class="btn btn-default" type="button" id="add-school">Add another school</button>
-				<h3>Additional informations</h3>
-				{{additional_informations|crispy}}
-				<input type="submit" id="submit-btn" class="btn btn-success" value="Generate your resume!"/>
-			</form>
--->
-		</div>
-	</div>
-</div>
 {% endblock %}
-

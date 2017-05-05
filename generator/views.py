@@ -53,8 +53,8 @@ def generator(request):
 			experience_array = formset_data(experience_forms, **experience_kwargs)			
 			education_array = formset_data(education_forms, **education_kwargs)
 			
-			file_path = resume_generator('resume_template1', name, contact, carrer_objective, skills, experience_array, education_array, additional_informations) #generates the resume with the given informations and returns a path to the created file
-			request.session['path'] = file_path
+			file_path = resume_generator('resume_template2', name, contact, carrer_objective, skills, experience_array, education_array, additional_informations) #generates the resume with the given informations and returns a path to the created file
+			request.session['path'] = file_path # saves the path to the file that will be used in success view
 			
 			return redirect('success')
 		

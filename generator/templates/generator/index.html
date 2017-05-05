@@ -2,41 +2,32 @@
 {% load static %}
 {% load crispy_forms_tags %}
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-	{% block title %}
-	{% endblock %}
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Bootstrap CSS theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <!-- Custom CSS styling -->
-    <link rel='stylesheet' type='text/css' href="{% static 'css/custom.css' %}">
-</head>
-<body>
-
-	{% block content %}
-	{% endblock %}
-</body>
-<footer class="footer">
-<div class="container">
-		<div class="col-xs-12">
-			<h3>FOOTER</h3>
-		</div>	
-	</div>
-</div>
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type="text/javascript" src="{% static 'js/new_element.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/datepicker.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/download.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/tabs.js' %}"></script>
-<script></script>
-</footer>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+		{% block title %}
+		{% endblock %}
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <!-- Bootstrap CSS theme -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	    <!-- Custom CSS styling -->
+	    <link rel='stylesheet' type='text/css' href="{% static 'css/custom.css' %}">
+	</head>
+	<body>	
+		{% block content %}
+		{% endblock %}
+	</body>
+	<footer class="footer">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{% static 'js/new_element.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/datepicker.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/download.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/tabs_progressbar.js' %}"></script>
+	</footer>
 </html>

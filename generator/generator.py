@@ -3,9 +3,9 @@ from docxtpl import DocxTemplate, Listing
 
 def resume_generator(template_name, name, address, carrer_objective, skills, experience_array, education_array, additional_informations):
     """
-    Takes template name (.docx template) and all submitted POST data, creates a dictionary out of the given arguments, renders the data on .docx template and returns the path to the generate file
+    Takes template name (.docx template) and all submitted POST data, creates a dictionary out of the given arguments, renders the data on .docx template and returns the path to the generatd file
     """
-    skills = skills.split(',')
+    skills = skills.split(',') 
     if additional_informations:
         extra_informations = additional_informations.split(',')
     else:
@@ -20,7 +20,7 @@ def resume_generator(template_name, name, address, carrer_objective, skills, exp
                'education' : education_array,
                'informations' : extra_informations
                }
-    doc.render(context)
+    doc.render(context) #renders the context on the template
     file_path = settings.MEDIA_ROOT+'/'+name+'.docx'
     doc.save(file_path)
     return file_path
