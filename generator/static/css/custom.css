@@ -41,6 +41,14 @@
 	background-color: #337ab7 !important;
 }
 
+#select-template {
+	max-width: 250px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	
+}
+
+
 #generate-button{
 	max-width: 250px;
 }
@@ -55,7 +63,7 @@
     text-align:center;
 }
 
-#myCarousel {
+.carousel {
 	height: 760px;
 	width: 530px; 
 	margin: 0 auto;

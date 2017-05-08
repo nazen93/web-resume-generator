@@ -18,7 +18,7 @@ from .data_function import formset_data
 def index(request):
 	return render(request, 'generator/home_page.html')
 
-def generator(request):	
+def generator(request, template):	
 	experience_formset = formset_factory(ExperienceInformationsForm)
 	education_formset = formset_factory(EducationInformationsForm)
 	if request.method == "POST":
@@ -27,6 +27,7 @@ def generator(request):
 		education_forms = education_formset(request.POST, prefix='education')
 		additional_informations_form = AdditionaInformationsForm(request.POST)
 		if basic_information_form.is_valid() and experience_forms.is_valid() and education_forms.is_valid() and additional_informations_form.is_valid():
+			selected_template = 'resume_template' + template
 			name = request.POST.get('name', '')
 			phone_number = request.POST.get('phone_number', '')
 			mail = request.POST.get('mail', '')
@@ -53,7 +54,7 @@ def generator(request):
 			experience_array = formset_data(experience_forms, **experience_kwargs)			
 			education_array = formset_data(education_forms, **education_kwargs)
 			
-			file_path = resume_generator('resume_template2', name, contact, carrer_objective, skills, experience_array, education_array, additional_informations) #generates the resume with the given informations and returns a path to the created file
+			file_path = resume_generator(selected_template, name, contact, carrer_objective, skills, experience_array, education_array, additional_informations) #generates the resume with the given informations and returns a path to the created file
 			request.session['path'] = file_path # saves the path to the file that will be used in success view
 			
 			return redirect('success')
